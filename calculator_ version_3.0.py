@@ -1,0 +1,235 @@
+
+# Project 01: Calculator Version 3.0
+# Topic: Calculator Project(Planning and Structure)
+# Description: Learning how to build a simple calculator project using Python.
+# Author: Nasir Ali 
+
+# What is a Calculator?
+# A calculator project is a simple program that performs mathematical operations based on the user choice.
+
+# Exception Handling 
+# Exception Handling is a way to handle runtime errors so that the program does not crash.
+
+
+# Menu Function 
+#Display all available calculator options.
+
+def menu():
+	print("=" * 30)
+	print("Simple Calculator")
+	print("=" * 30)
+	print("1. Addition")
+	print("2. Subtraction")
+	print("3. Multiplication")
+	print("4. Division")
+	print("5. Squaring")
+	print("6. Cube")
+	print("7. Power")
+	print("8. Average")
+	print("9. Percentage")
+	print("10. Modulus")
+	print("11. Floor Division")
+	print("12. Square Root")
+	print("13. Maximum")
+	print("14. Minimum")
+	print("15. Absolute")
+	print("16. Check Even & Odd Numbers")
+	print("17. Exit")
+	print("=" * 30)
+	print()
+
+#Helper Show Result 
+def show_result(result):
+	print("=" * 30)
+	print(f"Answer = {result}")
+	print("=" * 30)
+	
+# Helper Show Input Numbers 
+def get_numbers():
+	while True:
+		try:
+			num1 = float(input("Enter first number: "))
+			num2 = float(input("Enter second number: "))
+			return num1, num2
+		except ValueError:
+			print("Please enter valid numbers ")
+
+#1. Addition Function 
+#Takes two numbers from user and displays their sum
+
+def addition():
+	num1,num2 = get_numbers()
+	result = num1+num2
+	show_result(result)
+	
+#2. Subtraction 
+def subtraction():
+	num1,num2 = get_numbers()
+	result = num1- num2
+	show_result(result)
+	
+#3. Multiplication 
+def multiplication():
+	num1,num2 = get_numbers()
+	result = num1 * num2
+	show_result(result)
+
+#4. Division 
+def division():
+	try:
+		num1,num2 = get_numbers()
+		result = num1 / num2
+		show_result(result)
+	except ZeroDivisionError:
+		print("Cannot divide by 0")
+	except ValueError:
+		print("Invalid input")
+
+#5. Square
+def square():
+	num = float(input("Enter a number: "))
+	result = num ** 2
+	show_result(result)	
+
+#6. Cube
+def cube():
+	num = float(input("Enter a number: "))
+	result = num ** 3
+	show_result(result)
+
+#7. Power 
+def power():
+	base = float(input("Enter a base number: "))
+	exponent = float(input("Enter a exponent number: "))
+	result = base ** exponent
+	show_result(result)
+
+#8. Average
+def average():
+	num1,num2 = get_numbers()
+	result = (num1+num2)/2
+	show_result(result)
+	
+#9. Percentage (%)
+def percentage():
+	try:
+		total_marks = float(input("Enter total marks: "))
+		obtain_marks = float(input("Enter obtained marks: "))
+		result = (obtain_marks / total_marks)*100
+		show_result(result)
+	except ZeroDivisionError:
+		print("Total marks cannot be zero")
+	except ValueError:
+		print("Invalid input")
+		
+#10. Modulus
+def modulus():
+	try:
+		num1,num2 = get_numbers()
+		result = num1 % num2
+		show_result(result)
+	except ZeroDivisionError:
+		print("Cannot perform modulus by zero")
+	except ValueError:
+		print("Invalid input")
+	
+#11. Floor Division 
+def floor_division():
+	try:
+		num1,num2 = get_numbers()
+		result = num1 // num2
+		show_result(result)
+	except ZeroDivisionError:
+		print("Cannot perform floor division by zero")
+	except ValueError:
+		print("Invalid input")
+	
+#12. Square Root
+import math 
+def square_root():
+	try:
+		num = float(input("Enter a number: "))
+		result = math.sqrt(num)
+		show_result(result)
+	except ValueError:
+		print("Square root of a nagetive number is not possible")
+	
+#13. Maximum 
+def maximum():
+	num1,num2 = get_numbers()
+	result = max(num1,num2)
+	show_result(result)
+	
+#14. Minimum 
+def minimum():
+	num1,num2 = get_numbers()
+	result = min(num1,num2)
+	show_result(result)
+#15. Absolute 
+def absolute():
+	num = float(input("Enter a number: "))
+	result = abs(num)
+	show_result(result)
+	
+#16. Check Even & Odd Numbers 
+def check_even_odd():
+	try:
+		num = int(input("Enter a number: "))
+		if num %2 == 0:
+			print("Even")
+		else:
+			print("Odd")
+	except ValueError:
+		print("please enter a valid integer")
+	
+while True:
+    try:
+        menu()
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            addition()
+        elif choice == "2":
+            subtraction()
+        elif choice == "3":
+            multiplication()
+        elif choice == "4":
+            division()
+        elif choice == "5":
+            square()
+        elif choice == "6":
+            cube()
+        elif choice == "7":
+            power()
+        elif choice == "8":
+            average()
+        elif choice == "9":
+            percentage()
+        elif choice == "10":
+            modulus()
+        elif choice == "11":
+            floor_division()
+        elif choice == "12":
+            square_root()
+        elif choice == "13":
+            maximum()
+        elif choice == "14":
+            minimum()
+        elif choice == "15":
+            absolute()
+        elif choice == "16":
+            check_even_odd()
+        elif choice == "17":
+            print("Thank you for using Calculator")
+            break
+        else:
+            raise ValueError("Invalid choice!")
+
+    except ValueError as e:
+        print(e)		
+        
+        			
+        			
+
+	
+	
